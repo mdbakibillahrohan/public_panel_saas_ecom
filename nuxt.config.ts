@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   devServer: {port: 4001, host: '0.0.0.0'},
   css: ['./app/assets/css/main.css'],
-  modules:['@nuxt/ui'],
+  modules:['@nuxt/ui', '@pinia/nuxt'],
   vite: {
     plugins: [tailwindcss()],
   },
