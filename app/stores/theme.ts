@@ -1,33 +1,33 @@
-import { defineStore } from "pinia";
-import { ref, computed, watch } from "vue";
+import { defineStore } from "pinia"
+import { ref, computed, watch } from "vue"
 
 // Types
 export interface ThemeColors {
-  primary: string;
-  primaryHover: string;
-  primaryLight: string;
-  secondary: string;
-  accent: string;
-  success: string;
-  warning: string;
-  error: string;
-  info: string;
+  primary: string
+  primaryHover: string
+  primaryLight: string
+  secondary: string
+  accent: string
+  success: string
+  warning: string
+  error: string
+  info: string
 }
 
 export interface ModeColors {
-  background: string;
-  backgroundAlt: string;
-  surface: string;
-  surfaceHover: string;
-  card: string;
-  textMain: string;
-  textSecondary: string;
-  textMuted: string;
-  border: string;
-  borderLight: string;
+  background: string
+  backgroundAlt: string
+  surface: string
+  surfaceHover: string
+  card: string
+  textMain: string
+  textSecondary: string
+  textMuted: string
+  border: string
+  borderLight: string
 }
 
-export type ColorMode = "light" | "dark";
+export type ColorMode = "light" | "dark"
 
 // Default colors (can be replaced by server-driven colors later)
 const defaultColors: ThemeColors = {
@@ -40,7 +40,7 @@ const defaultColors: ThemeColors = {
   warning: "#F59E0B",
   error: "#EF4444",
   info: "#3B82F6",
-};
+}
 
 const lightModeColors: ModeColors = {
   background: "#FFFFFF",
@@ -53,7 +53,7 @@ const lightModeColors: ModeColors = {
   textMuted: "#9CA3AF",
   border: "#E5E7EB",
   borderLight: "#F0F2F4",
-};
+}
 
 const darkModeColors: ModeColors = {
   background: "#111621",
@@ -66,57 +66,57 @@ const darkModeColors: ModeColors = {
   textMuted: "#6B7280",
   border: "#374151",
   borderLight: "#1F2937",
-};
+}
 
 export const useThemeStore = defineStore("theme", () => {
   // State
-  const colorMode = ref<ColorMode>("light");
-  const colors = ref<ThemeColors>({ ...defaultColors });
-  const lightColors = ref<ModeColors>({ ...lightModeColors });
-  const darkColors = ref<ModeColors>({ ...darkModeColors });
+  const colorMode = ref<ColorMode>("light")
+  const colors = ref<ThemeColors>({ ...defaultColors })
+  const lightColors = ref<ModeColors>({ ...lightModeColors })
+  const darkColors = ref<ModeColors>({ ...darkModeColors })
 
   // Computed
-  const isDark = computed(() => colorMode.value === "dark");
+  const isDark = computed(() => colorMode.value === "dark")
 
   const currentModeColors = computed<ModeColors>(() => {
-    return isDark.value ? darkColors.value : lightColors.value;
-  });
+    return isDark.value ? darkColors.value : lightColors.value
+  })
 
   // All colors combined for easy access
   const allColors = computed(() => ({
     ...colors.value,
     ...currentModeColors.value,
-  }));
+  }))
 
   // Actions
   function toggleColorMode() {
-    colorMode.value = colorMode.value === "light" ? "dark" : "light";
+    colorMode.value = colorMode.value === "light" ? "dark" : "light"
   }
 
   function setColorMode(mode: ColorMode) {
-    colorMode.value = mode;
+    colorMode.value = mode
   }
 
   function setColors(newColors: Partial<ThemeColors>) {
-    colors.value = { ...colors.value, ...newColors };
+    colors.value = { ...colors.value, ...newColors }
   }
 
   function setModeColors(mode: ColorMode, newColors: Partial<ModeColors>) {
     if (mode === "light") {
-      lightColors.value = { ...lightColors.value, ...newColors };
+      lightColors.value = { ...lightColors.value, ...newColors }
     } else {
-      darkColors.value = { ...darkColors.value, ...newColors };
+      darkColors.value = { ...darkColors.value, ...newColors }
     }
   }
 
   // Initialize from localStorage
   function initFromStorage() {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme-color-mode");
+      const stored = localStorage.getItem("theme-color-mode")
       if (stored === "dark" || stored === "light") {
-        colorMode.value = stored;
+        colorMode.value = stored
       } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        colorMode.value = "dark";
+        colorMode.value = "dark"
       }
     }
   }
@@ -126,16 +126,16 @@ export const useThemeStore = defineStore("theme", () => {
     colorMode,
     (newMode) => {
       if (typeof window !== "undefined") {
-        localStorage.setItem("theme-color-mode", newMode);
+        localStorage.setItem("theme-color-mode", newMode)
         if (newMode === "dark") {
-          document.documentElement.classList.add("dark");
+          document.documentElement.classList.add("dark")
         } else {
-          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.remove("dark")
         }
       }
     },
-    { immediate: true }
-  );
+    { immediate: true },
+  )
 
   return {
     // State
@@ -155,5 +155,5 @@ export const useThemeStore = defineStore("theme", () => {
     setColors,
     setModeColors,
     initFromStorage,
-  };
-});
+  }
+})

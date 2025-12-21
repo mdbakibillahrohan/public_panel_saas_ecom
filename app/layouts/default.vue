@@ -1,10 +1,10 @@
 <template>
   <div :class="['min-h-screen', isDark ? 'dark' : '']">
-    <AppHeader />
+    <DynamicHeader />
     <main class="min-h-[calc(100vh-200px)]">
       <slot />
     </main>
-    <AppFooter />
+    <DynamicFooter />
     
     <!-- Toast Notifications -->
     <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none">
@@ -55,10 +55,12 @@ import { computed, onMounted } from 'vue'
 import { useTheme } from '~/composables/useTheme'
 import { useUIStore, type NotificationType } from '~/stores/ui'
 import { useThemeStore } from '~/stores/theme'
+import DynamicHeader from '~/components/DynamicHeader.vue'
+import DynamicFooter from '~/components/DynamicFooter.vue'
 
-const { isDark } = useTheme()
 const uiStore = useUIStore()
 const themeStore = useThemeStore()
+const { isDark } = useTheme()
 
 const notifications = computed(() => uiStore.notifications)
 
