@@ -24,13 +24,13 @@ const sectionComponents = {
   'brands-showcase': defineAsyncComponent(() => import('~/components/sections/BrandShowcase.vue')),
   'testimonials': defineAsyncComponent(() => import('~/components/sections/TestimonialsCarousel.vue')),
   'newsletter-signup': defineAsyncComponent(() => import('~/components/sections/NewsletterSignup.vue')),
-  'flash-sales': defineAsyncComponent(() => import('~/components/home/FlashSales.vue')),
-  'new-arrivals': defineAsyncComponent(() => import('~/components/home/NewArrivals.vue')),
-  'best-sellers': defineAsyncComponent(() => import('~/components/home/BestSellers.vue')),
-  'join-club': defineAsyncComponent(() => import('~/components/home/JoinClub.vue')),
-}
+  'flash-sales': defineAsyncComponent(() => import('~/components/Home/FlashSales.vue')),
+  'new-arrivals': defineAsyncComponent(() => import('~/components/Home/NewArrivals.vue')),
+  'best-sellers': defineAsyncComponent(() => import('~/components/Home/BestSellers.vue')),
+  'join-club': defineAsyncComponent(() => import('~/components/Home/JoinClub.vue')),
+} as const
 
 function getSectionComponent(type: HomepageSectionType) {
-  return sectionComponents[type] || null
+  return sectionComponents[type as keyof typeof sectionComponents] || null
 }
 </script>

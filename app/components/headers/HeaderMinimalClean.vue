@@ -120,7 +120,7 @@ import { useRouter } from "next/navigation"
             </NuxtLink>
 
             <!-- User Menu -->
-            <HeaderUserMenu />
+            <HeadersHeaderUserMenu />
           </div>
         </div>
 

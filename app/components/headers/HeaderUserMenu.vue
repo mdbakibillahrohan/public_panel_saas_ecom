@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from "next/navigation"
 import { useUserStore } from "~/stores/user"
 import { useThemeStore } from "~/stores/theme"
 
@@ -49,3 +48,5 @@ const userMenuItems = computed(() => [
   ],
 ])
 </script>
+
+<template setup ></template>

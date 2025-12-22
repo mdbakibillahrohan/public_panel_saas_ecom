@@ -195,7 +195,7 @@ const defaultConfig: SaasConfig = {
   productPageLayout: "sidebar-left",
 
   homepageSections: [
-    { id: "flash-sales", type: "flash-sales", enabled: true, order: 1, config: {} },
+    // { id: "flash-sales", type: "flash-sales", enabled: true, order: 1, config: {} },
     { id: "hero-banner", type: "hero-banner", enabled: true, order: 2, config: {} },
     { id: "categories", type: "categories", enabled: true, order: 3, config: {} },
     { id: "new-arrivals", type: "new-arrivals", enabled: true, order: 4, config: {} },
@@ -331,7 +331,7 @@ export const useSaasConfigStore = defineStore("saas-config", () => {
       config.value.homepageSections[index] = {
         ...config.value.homepageSections[index],
         ...updates,
-      }
+      } as HomepageSection
     }
   }
 

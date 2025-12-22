@@ -1,33 +1,4 @@
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
-import { useRouter } from "next/navigation"
+
 <template>
   <div class="relative">
     <div class="h-24"></div>
@@ -63,7 +34,7 @@ import { useRouter } from "next/navigation"
               <span class="material-symbols-outlined text-lg">favorite</span>
               <span
                 v-if="wishlistCount > 0"
-                class="absolute -top-1 -right-1 min-w-[14px] h-[14px] flex items-center justify-center text-[9px] font-bold text-white rounded-full px-0.5"
+                class="absolute -top-1 -right-1 min-w-3.5 h-3.5 flex items-center justify-center text-[9px] font-bold text-white rounded-full px-0.5"
                 :style="{ backgroundColor: primaryColor }"
               >
                 {{ wishlistCount > 9 ? "9+" : wishlistCount }}
@@ -74,14 +45,14 @@ import { useRouter } from "next/navigation"
               <span class="material-symbols-outlined text-lg">shopping_cart</span>
               <span
                 v-if="cartCount > 0"
-                class="absolute -top-1 -right-1 min-w-[14px] h-[14px] flex items-center justify-center text-[9px] font-bold text-white rounded-full px-0.5"
+                class="absolute -top-1 -right-1 min-w-3.5 h-3.5 flex items-center justify-center text-[9px] font-bold text-white rounded-full px-0.5"
                 :style="{ backgroundColor: primaryColor }"
               >
                 {{ cartCount > 9 ? "9+" : cartCount }}
               </span>
             </NuxtLink>
 
-            <HeaderUserMenu />
+            <HeadersHeaderUserMenu />
           </div>
         </div>
 

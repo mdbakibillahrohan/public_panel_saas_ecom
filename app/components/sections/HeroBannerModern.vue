@@ -1,6 +1,6 @@
 <template>
   <section class="relative bg-accent overflow-hidden">
-    <div class="container mx-auto px-4 py-12 md:py-20 lg:py-32">
+    <div class="container mx-auto px-4 py-12 md:py-20 lg:py-12">
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <!-- Content -->
         <div class="text-center lg:text-left space-y-6 md:space-y-8">

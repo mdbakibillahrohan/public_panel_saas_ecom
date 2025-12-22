@@ -133,7 +133,7 @@ import { useRouter } from "next/navigation"
             </NuxtLink>
 
             <!-- User Button / Auth -->
-            <HeaderUserMenu />
+            <HeadersHeaderUserMenu />
           </nav>
         </div>
 

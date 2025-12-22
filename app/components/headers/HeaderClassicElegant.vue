@@ -60,7 +60,7 @@
           </button>
 
           <!-- User Menu -->
-          <HeaderUserMenu />
+          <HeadersHeaderUserMenu />
 
           <!-- Wishlist -->
           <NuxtLink to="/wishlist" class="relative p-2 hover:bg-muted rounded-lg transition-colors">
